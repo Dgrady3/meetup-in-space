@@ -60,22 +60,22 @@ get '/meetups/new' do
   erb :'meetups/new'
 end
 
-get'/meetups/:id' do
+get '/meetups/:id' do
   @meetup = Meetup.find(params[:id])
 
   erb :'meetups/show'
 end
 
-post /'meetups' do
+post '/meetups' do
   authenticate!
 
   @meetup = Meetup.new(params[:meetup])
 
   if @meetup.save
-  redirect "/meetups/#{@meetup.id}"
+    redirect "/meetups/#{@meetup.id}"
   else
     flash[:notice]="There were erros with the information that you provided."
-    render :'meeups/new'
+    erb :'meetups/new'
   end
 end
 
