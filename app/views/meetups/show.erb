@@ -1,4 +1,4 @@
-<h1><% @meetup.name %></h1>
+<h1><%= @meetup.name %></h1>
 
 <p><%= @meetup.location %></p>
 
@@ -9,3 +9,15 @@
 <%end%>
 
 <p><%= @meetup.description %></p>
+
+<h2>Members</h2>
+
+<% if @members.any? %>
+  <%@members.each do |user|%>
+  <h3><%= user.username%></h3>
+  <p><img src="<%=user.avatar_url%>"></p>
+  <%end%>
+  <%else%>
+  <p>Nobody has joined this meetup yet.</p>
+  <%end%>
+
