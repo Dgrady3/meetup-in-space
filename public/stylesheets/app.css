@@ -4,10 +4,25 @@ body {
   color: #FFFFFF;
 }
 
+
 a,
 a:visited {
   color: #FFFFFF;
   text-decoration: none;
+}
+
+form{
+  color: #000000;
+}
+
+label{
+  display: block;
+  color: #FFFFFF;
+
+}
+
+.form-input-wrapper {
+  margin-bottom: 1em
 }
 
 .container {
