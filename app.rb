@@ -85,6 +85,21 @@ post '/meetups' do
   end
 end
 
+post '/meetups/:meetup_id/memberships' do
+  authenticate!
+
+  meetup = Meetup.find(params[:meetup_id])
+  @memberships = Membership.new(user_id: current_user.id, meetup_id: meetup.id )
+
+  if @memberships.save
+    falsh[:notice] = "You successfully joined the meetup!"
+    redirect "/meetups/#{meetup.id}"
+  else
+    flash[:notice] = "There was an error. Please try again."
+     redirect "/meetups/#{meetup.id}"
+  end
+end
+
 
 
 
