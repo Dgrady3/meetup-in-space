@@ -11,6 +11,11 @@ a:visited {
   text-decoration: none;
 }
 
+.leave {
+  color: #000000;
+
+}
+
 form{
   color: #000000;
 }

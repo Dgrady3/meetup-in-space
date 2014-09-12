@@ -17,7 +17,15 @@
   <h3><%= user.username%></h3>
   <p><img src="<%=user.avatar_url%>"></p>
   <%end%>
+
+<form action="//meetups/<%=@meetup.id%>/memberships" method="post">
+  <input class="leave" type ="submit" value="Remove membership">
+</form>
+
   <%else%>
   <p>Nobody has joined this meetup yet.</p>
   <%end%>
+
+
+
 

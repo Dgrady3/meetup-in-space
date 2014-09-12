@@ -100,6 +100,33 @@ post '/meetups/:meetup_id/memberships' do
   end
 end
 
+post '//meetups/<%=@meetup.id%>/memberships' do
+  authenticate!
+
+  member = Meetup.find(params[:meetup_id]).memberships
+  @deleted = member.destroy(params[:meetup_id])
+
+  if @deleted.save
+    redirect '/meetups/<%=@meetup.id%>/memberships'
+    flash[:notice] = "You successfully left the group"
+  else
+    flash[:notice] = "You didn't leave"
+
+  end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
